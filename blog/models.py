@@ -44,6 +44,12 @@ class BlogPost(models.Model):
     class Meta:
         ordering = ['-timestamp']
 
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular blog instance.
+        """
+        return reverse('blog-detail', args=[str(self.id)])
+
     def __str__(self):
         """String to represent the blog post object"""
         return self.blog_post_title

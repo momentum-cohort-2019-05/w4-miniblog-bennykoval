@@ -23,9 +23,11 @@ from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', views.index, name='index'),
     #path('blog/', include('blog.urls')),
     path('', RedirectView.as_view(url='/blog', permanent=True)),
-    path('', views.index, name='index'),
+    #path('', views.index, name='index'),
+    path('blog/posts/', views.BlogPostListView.as_view(), name='posts'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,7 +1,6 @@
 from django.shortcuts import render
-
-# Create your views here.
-
+from django.views import generic
+from django.core.paginator import Paginator
 from blog.models import BlogPost, BlogComment, BlogAuthor
 
 def index(request):
@@ -24,3 +23,11 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+# def BlogPostListView(request):
+#     """View function for blog posts of site."""
+
+
+class BlogPostListView(generic.ListView):
+    model = BlogPost
+    paginator = Paginator('BlogPost', 5)
