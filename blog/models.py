@@ -48,7 +48,7 @@ class BlogPost(models.Model):
         """
         Returns the url to access a particular blog instance.
         """
-        return reverse('blog-detail', args=[str(self.id)])
+        return reverse('blog_detail', args=[str(self.id)])
 
     def __str__(self):
         """String to represent the blog post object"""

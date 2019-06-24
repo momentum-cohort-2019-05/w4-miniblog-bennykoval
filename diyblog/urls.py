@@ -20,6 +20,7 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 from blog import views
+from blog import models
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,7 @@ urlpatterns = [
     #path('blog/', include('blog.urls')),
     path('', RedirectView.as_view(url='/blog', permanent=True)),
     #path('', views.index, name='index'),
+    #path('blog/posts/', views.post_view, name='blogview')
     path('blog/posts/', views.BlogPostListView.as_view(), name='posts'),
 ]
 

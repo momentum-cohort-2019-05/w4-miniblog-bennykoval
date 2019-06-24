@@ -1,17 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Test</h1>
-  <!-- <h1>Blog Post List</h1>
-  {% if book_list %}
+  <h1>{{ blog.blog_post_title }}</h1>
+  {% if blogpost %}
   <ul>
-    {% for book in book_list %}
+    {% for description in blogpost %}
       <li>
-        <a href="{{ blog-detail.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+        <a href="{{ blog_detail.get_absolute_url }}">{{ blog.blog_post_title }}</a>
       </li>
     {% endfor %}
   </ul>
   {% else %}
-    <p>There are no books in the library.</p> -->
+    <p>There are no posts.</p>
   {% endif %}       
 {% endblock %}
